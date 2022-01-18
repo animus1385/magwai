@@ -1,0 +1,37 @@
+@import "./card";
+@import "../variables";
+@import "../mixin";
+.cards {
+	margin-bottom: 200px;
+	&__unity {
+		@include flexColum;
+	}
+
+	&__list {
+		@include flexWrap;
+		overflow: hidden;
+		&--active {
+			height: 100%;
+		}
+		margin-bottom: 30px;
+		gap: 30px;
+	}
+	&__title {
+		margin-bottom: 53px;
+	}
+	&__btn-block {
+		margin: 0 auto 20px;
+		transform: skew(-17deg, 0deg) translateX(-4px);
+	}
+}
+
+@media (max-width: 1024px) {
+	.cards {
+		&__title {
+			text-align: center;
+			margin-bottom: 30px;
+			font-size: 30px;
+		}
+	}
+}
+

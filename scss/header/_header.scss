@@ -1,0 +1,174 @@
+@import "../variables";
+@import "../mixin";
+.header {
+	width: 100%;
+	z-index: 6;
+	padding: 26px 0 29px;
+	&__unity-block {
+		@include flexCenterBettween;
+	}
+	&__logo {
+		margin-right: 76px;
+		animation: logoAnima 15s ease infinite;
+	}
+	&__btn-pop {
+		cursor: pointer;
+	}
+	&__list {
+		@include flex;
+	}
+	&__nav {
+		margin-right: auto;
+	}
+	&__item {
+		&:not(:last-child) {
+			margin-right: 42px;
+		}
+	}
+	&__right-block {
+		@include flex;
+		transform: translateX(-22px);
+	}
+	&__tel-block {
+		margin-right: 31px;
+		svg {
+			transform: skew(17deg, 0deg);
+		}
+	}
+	&__application {
+		display: flex;
+	}
+	&__link {
+		font-size: $font12px;
+		font-weight: bold;
+		color: $colorWhite;
+		line-height: $lineHeight150;
+		transition: all 0.3s ease;
+		&:hover {
+			color: orange;
+		}
+	}
+}
+.burger {
+	display: none;
+	width: 30px;
+	height: 25px;
+	position: relative;
+	overflow: hidden;
+	&__line {
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		background-color: $colorWhite;
+		&:nth-child(1) {
+			transform: translateX(-15px);
+		}
+		&:nth-child(2) {
+			bottom: 12px;
+		}
+		&:nth-child(3) {
+			bottom: 0px;
+			transform: translateX(-10px);
+		}
+	}
+	&--active {
+		.burger__line:nth-child(1),
+		.burger__line:nth-child(3) {
+			transform: translateX(0px);
+		}
+	}
+}
+
+@keyframes logoAnima {
+	0% {
+		transform: rotate3d(0, 0, 0, 0deg);
+	}
+	100% {
+		transform: rotate3d(0, 1, 0, 360deg);
+	}
+}
+@media (max-width: 1500px) {
+	.header {
+		&__logo {
+			margin-right: 20px;
+		}
+		&__tel-block {
+			padding: 10px;
+			margin-right: 15px;
+		}
+		&__item:not(:last-child) {
+			margin-right: 30px;
+		}
+		&__application {
+			font-size: $font12px;
+		}
+	}
+}
+@media (max-width: 1240px) {
+	.header {
+		&__nav {
+			display: none;
+			&--active {
+				@include flex;
+				position: fixed;
+				bottom: 0;
+				top: 90px;
+				left: 0;
+				right: 0;
+				z-index: 6;
+				background-color: $colorBg;
+				padding: 0 20px;
+				width: 100%;
+			}
+		}
+		&__list {
+			@include flexColum;
+			padding-top: 50px;
+		}
+		&__item {
+			margin-bottom: 15px;
+		}
+		&__link {
+			font-size: $font36px;
+			line-height: $lineHeight150;
+			color: transparent;
+			-webkit-text-stroke: 1px $colorGray;
+		}
+	}
+	.burger {
+		@include flex;
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		&__tel-block {
+			padding: 4px;
+		}
+		&__logo {
+			margin-right: 0px;
+		}
+		&__right-block {
+			display: none;
+			position: fixed;
+			bottom: 20px;
+			right: 0;
+			left: 0;
+			transform: translateX(0);
+			padding: 0 20px;
+			z-index: 7;
+			&--active {
+				@include flexColum;
+			}
+		}
+		&__tel-block {
+			margin-right: 0;
+			justify-content: center;
+			margin-bottom: 10px;
+		}
+		&__application {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+}

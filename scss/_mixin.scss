@@ -1,0 +1,29 @@
+@mixin  flex {
+    display: flex;
+}
+@mixin flexCenterBettween {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    
+}
+@mixin flexTotalCenter {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+@mixin flexCenter {
+    display: flex;
+    align-items:center;
+}
+@mixin flexColum {
+    display: flex;
+    flex-direction: column;
+    
+}
+@mixin  flexWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}

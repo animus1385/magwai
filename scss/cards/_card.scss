@@ -1,0 +1,79 @@
+@import "../variables";
+@import "../mixin";
+
+.card {
+	@include flexColum;
+	justify-content: flex-start;
+	background-color: $colorWhite;
+	width: 315px;
+	flex: 1 1 auto;
+	transition: all 0.5s ease;
+	&:hover {
+		transform: translateY(-10px);
+	}
+	&__img-block {
+		width: 100%;
+		height: 185px;
+		margin-bottom: auto;
+		background-color: $colorBlack;
+	}
+
+	&__info {
+		@include flexColum;
+		padding: 25px 25px 30px 23px;
+		overflow-wrap: break-word;
+	}
+	&__category {
+		display: block;
+		font-family: "Mulish";
+		font-weight: bold;
+		font-size: $font14px;
+		line-height: $lineHeight26px;
+		letter-spacing: 1.5px;
+		margin-bottom: 20px;
+	}
+	&__tilte {
+		width: 75%;
+		font-size: $font14px;
+		line-height: $lineHeight26px;
+		margin-bottom: 20px;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	&__descr {
+		font-size: $font14px;
+		line-height: $lineHeight24px;
+		margin-bottom: 20px;
+		display: -webkit-box;
+		-webkit-line-clamp: 6;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	&__time {
+		display: block;
+		font-size: $font12px;
+		line-height: $lineHeight24px;
+		margin-bottom: 25px;
+	}
+	&__btn {
+		border: none;
+		cursor: pointer;
+		background-color: $colorBlack;
+		color: $colorWhite;
+		font-size: $font14px;
+		font-weight: 600;
+		padding: 16px 0;
+		line-height: $lineHeight18px;
+		text-align: center;
+	}
+	&--hidden {
+		visibility: hidden;
+		overflow: hidden;
+		pointer-events: none;
+		height: 0;
+	}
+}
+
+

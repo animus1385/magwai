@@ -1,0 +1,154 @@
+@import "../variables";
+@import "../mixin";
+
+.popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 16;
+	align-items: center;
+
+	&--active {
+		@include flex;
+	}
+	&__bg {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	&__unity-block {
+		border: 1px solid $colorGray;
+		@include flex;
+		width: 1700px;
+		margin: 0 auto;
+		transform: skew(-5deg, 0);
+		background-color: $colorBg;
+	}
+	&__img-block {
+		overflow: hidden;
+		background-color: black;
+
+		img {
+			transform: skew(5deg, 0);
+		}
+	}
+	&__right {
+		overflow: hidden;
+		background-color: $colorBg;
+		z-index: 4;
+	}
+}
+.form {
+	padding: 76px 88px 140px;
+	overflow: hidden;
+	@include flexColum;
+	color: $colorWhite;
+	transform: skew(5deg, 0);
+	&__top-block {
+		@include flexCenterBettween;
+		margin-bottom: 50px;
+	}
+	&__close {
+		padding: 0;
+		border: 1px solid #2b2b2b;
+		transform: skew(-5deg, 0);
+		width: 60px;
+		height: 50px;
+		position: relative;
+		&::before,
+		&::after {
+			content: "";
+			width: 55%;
+			height: 2px;
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+			background-color: #2b2b2b;
+			position: absolute;
+		}
+		&::before {
+			transform: rotate(45deg);
+		}
+		&::after {
+			transform: rotate(133deg);
+		}
+	}
+	&__title {
+		margin-bottom: 20px;
+	}
+	&__desr {
+		display: block;
+		font-size: $font14px;
+		color: $colorGray;
+		width: 80%;
+	}
+	input,
+	&__mesage {
+		margin-bottom: 20px;
+		border: 1px solid #2b2b2b;
+		background-color: transparent;
+		color: $colorWhite;
+		padding: 22px 36px;
+		&::placeholder {
+			color: $colorWhite;
+		}
+	}
+	&__mesage {
+		height: 150px;
+		resize: none;
+	}
+	&__suscess {
+		@include flexCenter;
+	}
+	&__btn {
+		margin-right: 30px;
+	}
+	&__agreement {
+		width: 40%;
+	}
+}
+@media (max-width: 1280px) {
+	.popup {
+		&__img-block {
+			display: none;
+		}
+		&__unity-block {
+			width: auto;
+		}
+		&__unity-block {
+			transform: none;
+		}
+	}
+
+	.form {
+		padding: 34px 60px 54px;
+		transform: none;
+	}
+}
+@media (max-width: 768px) {
+	.form {
+		&__title {
+			font-size: 30px;
+		}
+		&__desr {
+			font-size: 10px;
+		}
+		&__agreement {
+			font-size: 13px;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		&__suscess {
+			flex-direction: column-reverse;
+			@include flex;
+		}
+		.btn-block {
+			width: 100%;
+		}
+	}
+}
